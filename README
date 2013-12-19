@@ -1,0 +1,17 @@
+
+Originally created while trying to get the following to work:
+https://plus.google.com/107046448275336404830/posts/DUxoHsAqnwE
+
+on ubuntu: (tested on xubuntu 13.04):
+1. First fetch all the git repos using git submodules (example you just cloned this repo)
+	- REMEMBER: this assumes you have github setup in ~/.ssh/config (else you should edit .gitmodules with http links.. before cloning)
+	make git
+The following needs sudo previledges:
+2. sudo ./oab-java6/oab-java6.sh (get the java packages setup)
+3. make install_ubuntu_packages - if you get conflicts, these need to be resolved
+4. make
+If everything goes well, you can now use ./ncsvc-socs-wrapper/juniper-vpn-wrap.py
+
+XXX NOTE: on xubuntu 13.10 ia32-libs and lib32asound2 is gone..
+I could not figure out how to make that crap work.. so gave up.
+

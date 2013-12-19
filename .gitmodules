@@ -1,0 +1,9 @@
+[submodule "lwip"]
+	path = lwip
+	url = git@github.com:russdill/lwip.git
+[submodule "ncsvc-socs-wrapper"]
+	path = ncsvc-socs-wrapper
+	url = git@github.com:russdill/ncsvc-socks-wrapper.git
+[submodule "oab-java6"]
+	path = oab-java6
+	url = git@github.com:flexiondotorg/oab-java6.git
