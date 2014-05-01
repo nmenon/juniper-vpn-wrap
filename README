@@ -12,6 +12,42 @@ The following needs sudo previledges:
 4. make
 If everything goes well, you can now use ./ncsvc-socs-wrapper/juniper-vpn-wrap.py
 
-XXX NOTE: on xubuntu 13.10 ia32-libs and lib32asound2 is gone..
+XXX NOTE: on xubuntu 13.10 ia32-libs and lib32asound2 is gone.. (note: uses :i386)
 I could not figure out how to make that crap work.. so gave up.
 
+Juniper Wrapper Configuration file
+==================================
+example :~/.j.cfg (use juniper-vpn-wrap.py -c ~/.j.cfg)
+
+[vpn]
+username=userid
+host=vpn.mydomain.com
+password=mypassword
+socks_port=1080
+
+SSH configuration: (~/.ssh/config)
+=================================
+
+Host myhost
+  User hostid
+  HostName myhost.mydomain.com
+  ProxyCommand nc -x localhost:1080 %h %p
+
+HTTP CONFIGURATION: 
+==================
+
+create a ~/.myproxy.pac as follows:
+
+Remember to use full url path in firefox (for example):
+	file:///home/myuser/.myproxy.pac
+
+
+function FindProxyForURL(url, host)
+{
+
+   if (shExpMatch(url, "*.mycorporate.com*")) {
+	return "SOCKS5 localhost:1080";
+   }
+
+  return "DIRECT";
+}
